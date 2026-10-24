@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080d1b">
+<meta name="description" content="Shaurya Rana — B.Tech Biotechnology student at LPU exploring Python, bioinformatics and cell biology.">
+<title>Shaurya Rana | Biotechnology Portfolio</title>
+
+<style>
+:root {
+  --bg: #080d1b;
+  --panel: rgba(17,26,48,.85);
+  --line: rgba(164,184,255,.18);
+  --text: #f4f7ff;
+  --muted: #aab6d3;
+  --cyan: #63e6e2;
+  --violet: #9c8cff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(ellipse at 12% 0%, #182451, transparent 36%),
+    radial-gradient(ellipse at 90% 35%, #102d3b, transparent 28%),
+    var(--bg);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  width: min(1120px, 92%);
+  margin: auto;
+}
+
+/* NAVIGATION */
+
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(18px);
+  background: rgba(8,13,27,.88);
+  border-bottom: 1px solid var(--line);
+}
+
+.nav-inner {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 1.2rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.brand span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+/* HERO */
+
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1.3fr .7fr;
+  align-items: center;
+  gap: 45px;
+  padding-top: 65px;
+  padding-bottom: 65px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--cyan);
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  padding: 7px 14px;
+  font-size: .85rem;
+  background: rgba(99,230,226,.06);
+}
+
+h1 {
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 1.05;
+  letter-spacing: -3px;
+  margin: 24px 0 18px;
+}
+
+.gradient {
+  background: linear-gradient(100deg, white, var(--cyan), var(--violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 650px;
+}
+
+.actions {
+  display: flex;
+  gap: 13px;
+  flex-wrap: wrap;
+  margin-top: 27px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font-weight: bold;
+  transition: .25s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px #0005;
+}
+
+.primary {
+  background: linear-gradient(120deg, var(--cyan), #a3f5dc);
+  color: #07111c;
+  border: none;
+}
+
+/* PROFILE PHOTO */
+
+.profile-card {
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: linear-gradient(145deg, #63e6e222, #9c8cff16);
+  box-shadow: 0 20px 60px #0005;
+  animation: float 5s ease-in-out infinite;
+}
+
+.profile-frame {
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #1b2c4d, #101829);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 18px;
+  color: var(--muted);
+}
+
+.profile-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-fallback strong {
+  display: block;
+  color: var(--cyan);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.photo-fallback {
+  display: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding: 65px 0;
+  scroll-margin-top: 85px;
+}
+
+.kicker {
+  color: var(--cyan);
+  font-size: .8rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  letter-spacing: -1px;
+  margin: 7px 0 12px;
+}
+
+.sub {
+  color: var(--muted);
+  max-width: 720px;
+}
+
+.section-head {
+  margin-bottom: 28px;
+}
+
+/* CARDS */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 25px;
+}
+
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 24px;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #63e6e280;
+}
+
+.icon {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.15rem;
+}
+
+.card p {
+  color: var(--muted);
+}
+
+.pill-row {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-top: 17px;
+}
+
+.pill {
+  font-size: .82rem;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #63e6e210;
+  border: 1px solid var(--line);
+  color: #d9ffff;
+}
+
+/* EDUCATION */
+
+.timeline {
+  display: grid;
+  gap: 16px;
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 20px;
+  padding: 23px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+
+.year {
+  color: var(--cyan);
+  font-weight: bold;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* PROJECT */
+
+.project {
+  position: relative;
+  overflow: hidden;
+}
+
+.project:hover {
+  border-color: var(--cyan);
+}
+
+/* CONTACT */
+
+.contact-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(120deg, #63e6e215, #9c8cff18);
+}
+
+.note {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 14px;
+  color: #f2dca8;
+  background: #ffcd7010;
+  border: 1px solid #ffcd7030;
+}
+
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  color: var(--muted);
+  font-size: .9rem;
+}
+
+/* ANIMATIONS */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  animation: appear .9s ease both;
+}
+
+/* MOBILE RESPONSIVE */
+
+@media(max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    min-height: auto;
+  }
+
+  .profile-card {
+    max-width: 340px;
+    width: 90%;
+    margin: auto;
+  }
+
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-inner {
+    padding: 12px 0;
+  }
+
+  .nav-links {
+    gap: 12px;
+    font-size: .8rem;
+  }
+}
+
+@media(max-width: 540px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+
+  .brand {
+    font-size: .95rem;
+  }
+
+  h1 {
+    letter-spacing: -1.5px;
+  }
+
+  section {
+    padding: 48px 0;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a href="#home" class="brand">SHAURYA<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<header class="wrap hero" id="home">
+
+  <div class="hero-content">
+    <div class="eyebrow">🧬 Biotechnology Student · Learning & Building</div>
+
+    <h1>
+      Hi, I'm<br>
+      <span class="gradient">Shaurya Rana.</span>
+    </h1>
+
+    <p class="lead">
+      B.Tech Biotechnology student at Lovely Professional University,
+      Phagwara, Punjab. I am exploring the intersection of biology,
+      data and technology while learning Python, bioinformatics
+      and cell biology.
+    </p>
+
+    <div class="actions">
+      <a class="btn primary" href="#projects">Explore My Project ↗</a>
+
+      <a class="btn"
+         href="https://www.linkedin.com/in/shaurya-rana-b14359446/"
+         target="_blank"
+         rel="noopener noreferrer">LinkedIn ↗</a>
+
+      <a class="btn" href="mailto:shaurya4634@gmail.com">Email Me ↗</a>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-frame">
+
+      <img
+        src="profile.jpg"
+        alt="Portrait of Shaurya Rana"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+
+      <div class="photo-fallback">
+        <strong>Shaurya Rana</strong>
+        Upload a photo named profile.jpg to this repository.
+      </div>
+
+    </div>
+  </div>
+
+</header>
+
+<section id="about">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">A Little About Me</div>
+      <h2>Curious about life at the molecular level.</h2>
+      <p class="sub">
+        I am building my foundations in biotechnology and computational
+        tools, one concept and project at a time.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">🧫</div>
+        <h3>Biotechnology</h3>
+        <p>Developing a foundation in cell biology and biological systems.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">💻</div>
+        <h3>Computational Learning</h3>
+        <p>Learning Python and exploring how computational methods can support biological research.</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🔬</div>
+        <h3>Research Interest</h3>
+        <p>Interested in antibiotic resistance and its impact on modern healthcare.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Education</div>
+      <h2>Academic Background</h2>
+      <p class="sub">My educational journey so far.</p>
+    </div>
+
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="year">Current</div>
+        <div>
+          <h3>B.Tech in Biotechnology</h3>
+          <p class="muted">
+            Lovely Professional University (LPU), Phagwara, Punjab
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">Class XII</div>
+        <div>
+          <h3>M.C.M. D.A.V. Public School, Baghni, Nurpur</h3>
+          <p class="muted">84.2% · Senior Secondary Education</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="year">Class X</div>
+        <div>
+          <h3>M.C.M. D.A.V. Public School, Baghni, Nurpur</h3>
+          <p class="muted">81.6% · Secondary Education</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Skills in Progress</div>
+      <h2>Learning Today. Applying Tomorrow.</h2>
+      <p class="sub">
+        These skills are currently being developed through learning and practice.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="pill-row">
+        <span class="pill">Python · Learning</span>
+        <span class="pill">Bioinformatics · Learning</span>
+        <span class="pill">Cell Biology</span>
+        <span class="pill">Scientific Research</span>
+        <span class="pill">Critical Thinking</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Featured Work</div>
+      <h2>Project Spotlight</h2>
+      <p class="sub">
+        An introduction to a topic of interest in biotechnology.
+      </p>
+    </div>
+
+    <article class="card project">
+      <div class="icon">🦠</div>
+
+      <h3>Antibiotic Resistance in Bacteria</h3>
+
+      <p>
+        A learning project focused on understanding antibiotic resistance,
+        the biological mechanisms behind it, and why antimicrobial
+        resistance is an important public-health concern.
+      </p>
+
+      <div class="pill-row">
+        <span class="pill">Microbiology</span>
+        <span class="pill">Antimicrobial Resistance</span>
+        <span class="pill">Research & Learning</span>
+      </div>
+
+      <p class="muted" style="margin-top:16px;font-size:.9rem">
+        Project status: add a summary, sources, methods and findings
+        when the project write-up is ready.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<section id="certificates">
+  <div class="wrap">
+
+    <div class="section-head">
+      <div class="kicker">Academic Records</div>
+      <h2>Education & Achievements</h2>
+      <p class="sub">
+        Academic milestones and learning progress.
+      </p>
+    </div>
+
+    <div class="grid">
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Class X</h3>
+        <p>81.6% · M.C.M. D.A.V. Public School, Baghni, Nurpur</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">📄</div>
+        <h3>Class XII</h3>
+        <p>84.2% · M.C.M. D.A.V. Public School, Baghni, Nurpur</p>
+      </article>
+
+      <article class="card">
+        <div class="icon">🏅</div>
+        <h3>Achievements</h3>
+        <p>This section can be updated as new achievements and milestones are earned.</p>
+      </article>
+
+    </div>
+
+    <div class="note">
+      Privacy tip: avoid uploading full marksheets publicly. They may
+      contain roll numbers, dates of birth or other personal details.
+    </div>
+
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+
+    <div class="contact-box">
+
+      <div>
+        <div class="kicker">Get In Touch</div>
+        <h2>Let's connect and learn.</h2>
+        <p class="sub">
+          For biotechnology, learning and project-related conversations.
+        </p>
+        <p class="muted" style="margin-top:12px">
+          shaurya4634@gmail.com
+        </p>
+      </div>
+
+      <div class="actions" style="margin-top:0">
+
+        <a class="btn primary" href="mailto:shaurya4634@gmail.com">
+          Send an Email ↗
+        </a>
+
+        <a class="btn"
+           href="https://www.linkedin.com/in/shaurya-rana-b14359446/"
+           target="_blank"
+           rel="noopener noreferrer">LinkedIn ↗</a>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © <span id="year"></span> Shaurya Rana · Built with curiosity and a love for biotechnology.
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+  </html>
